@@ -91,7 +91,7 @@ Prediksi harga **Close** untuk hari selanjutnya.
 ## 📊 Visualization
 
 <p align="center">
-  <img src="plots/Tesla.png" width="600">
+  <img src="plot/tsla.png" width="600">
   <br><em>Actual vs Predicted Close (TSLA)</em>
 </p>
 
@@ -126,3 +126,16 @@ pip install -r requirements.txt
 ```bash
 notebook/tesla_gru_prediction.ipynb
 ```
+
+---
+
+## 👥 Tugas Project MK Kecerdasan Artifisial B - Kelompok 5
+
+| No | Nama | NIM |
+|----|------|-----|
+| 1  | Rahmatun Nisa | 2308107010016 |
+| 2  | Thahira Rizka | 2308107010024 |
+| 3  | Davina Aura | 2308107010052 |
+| 4  | Sifa Jema | 2308107010080 |
+
+---
