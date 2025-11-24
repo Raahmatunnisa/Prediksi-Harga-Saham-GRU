@@ -66,12 +66,12 @@ Prediksi harga **Close** untuk hari selanjutnya.
 
 | Metrik | Nilai |
 |--------|--------|
-| **MAE** | 7.8401 |
-| **RMSE** | 10.6007 |
+| **MAE** | 7.83 |
+| **RMSE** | 10.97 |
 
 ### **Interpretasi**
 - Rata-rata kesalahan prediksi harga sekitar **±7.8 USD**  
-- RMSE **10.6 USD** menunjukkan model stabil mengikuti pola harga  
+- RMSE **10.9 USD** menunjukkan model stabil mengikuti pola harga  
 - GRU efektif mempelajari pergerakan jangka pendek saham Tesla  
 
 ---
@@ -99,16 +99,7 @@ Prediksi harga **Close** untuk hari selanjutnya.
 
 ## 🏁 Kesimpulan Akhir
 
-Model **GRU multi-feature** ini mampu mempelajari pola pergerakan harga saham Tesla dengan baik.  
-Dengan menggunakan lima fitur OHLCV, model memperoleh pemahaman yang lebih lengkap terhadap dinamika pasar dibandingkan model berbasis satu fitur.
-
-Prediksi yang dihasilkan menunjukkan pola yang konsisten dengan error yang relatif kecil, sehingga model ini dapat dijadikan **baseline** untuk proyek prediksi harga saham.
-
-Model masih dapat ditingkatkan melalui:
-- Hyperparameter tuning  
-- Penambahan indikator teknikal (MA, RSI, MACD)  
-- Penambahan lapisan GRU/Dropout  
-- Model hybrid (GRU + CNN, atau GRU + Attention)  
+Model GRU multi-feature yang dibangun dalam proyek ini mampu mempelajari pola pergerakan harga saham Tesla secara efektif dengan memanfaatkan lima fitur OHLCV. Arsitektur GRU berlapis menunjukkan kemampuan yang stabil dalam mengikuti dinamika pasar, menghasilkan prediksi yang konsisten dengan tingkat kesalahan yang masih dalam batas wajar untuk prediksi harga harian. Hasil ini membuktikan bahwa pendekatan GRU dapat menjadi model yang solid untuk analisis time series saham. Meski demikian, performa model masih dapat ditingkatkan lebih lanjut melalui eksplorasi arsitektur GRU yang lebih kompleks, penambahan dropout, indikator teknikal tambahan, maupun pendekatan hybrid agar akurasi prediksi semakin optimal. 
 
 ---
 
