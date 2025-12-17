@@ -203,12 +203,24 @@ Prediksi-Harga-Saham-GRU/
 ---
 
 ## 📸 **Screenshots**
-![alt text](<Screenshot 2025-12-17 131449.png>)
-![alt text](<Screenshot 2025-12-17 131809.png>) 
-![alt text](<Screenshot 2025-12-17 131751.png>) 
-![alt text](<Screenshot 2025-12-17 131727.png>) 
-![alt text](<Screenshot 2025-12-17 131558.png>) 
-![alt text](<Screenshot 2025-12-17 131533.png>)
+
+### 📊 Dashboard Utama
+![Dashboard](./plot/dashboard.png)
+
+### 📈 Visualisasi Harga Saham
+![Visualisasi](./plot/visualisasi.png)
+
+### 🔍 Actual vs Predicted
+![Hasil Evaluasi](./plot/hasilEvaluasi.png)
+
+### 📉 Error Distribution
+![Error Distribution](./plot/errorDistribusi.png)
+
+### 📋 Comparison Table
+![Comparison Table](./plot/comparisonTable.png)
+
+### 🧠 Interpretasi Model
+![Interpretasi](./plot/interpretasi.png)
 
 ---
 
