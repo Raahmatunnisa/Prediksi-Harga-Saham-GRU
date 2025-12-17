@@ -1,22 +1,9 @@
-# Core Framework
-streamlit==1.29.0
-
-# Data & Finance
-yfinance==0.2.32
-pandas==2.1.3
-numpy==1.26.2
-
-# Machine Learning
-tensorflow==2.15.0
-scikit-learn==1.3.2
-
-# Visualization
-matplotlib==3.8.2
-
-# TensorFlow Dependencies (Important!)
-protobuf==3.20.3
-h5py==3.10.0
-
-# Optional: Untuk performa lebih baik
-# pyarrow==14.0.1
-# openpyxl==3.1.2
+streamlit>=1.28.0
+yfinance>=0.2.30
+pandas>=2.0.0
+numpy>=1.24.0
+tensorflow>=2.16.0,<2.17.0
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
+protobuf>=3.20.0
+h5py>=3.8.0
