@@ -220,7 +220,7 @@ Prediksi-Harga-Saham-GRU/
 ![Comparison Table](./plot/comparisonTable.png)
 
 ### 🧠 Interpretasi Model
-![Interpretasi](./plot/interpretasi.png)
+![Interpretasi](./plot/intrepretasi.png)
 
 ---
 
