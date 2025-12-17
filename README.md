@@ -1,132 +1,243 @@
-# 📈 Prediksi Harga Saham Tesla (TSLA) Menggunakan GRU
+# 📈 **Prediksi Harga Saham Tesla Menggunakan GRU**
 
-Proyek ini menerapkan **multivariate time series forecasting** menggunakan **Gated Recurrent Unit (GRU)** untuk memprediksi harga penutupan (closing price) harian saham Tesla (TSLA).  
-Model memanfaatkan data historis **OHLCV** (Open, High, Low, Close, Volume) dari **Yahoo Finance** dan menggunakan **window 60 hari** untuk mempelajari pola pergerakan harga.
+**Prediksi Harga Saham Tesla (GRU)** adalah aplikasi berbasis **Machine Learning** yang dirancang untuk memprediksi **harga saham Tesla (TSLA)** menggunakan model **Gated Recurrent Unit (GRU)**.
 
-Hasil pengujian menunjukkan bahwa model GRU mampu memberikan prediksi yang stabil dengan tingkat error yang relatif kecil.
+Sistem ini mencakup proses **data preprocessing, exploratory data analysis (EDA), training model GRU**, hingga **visualisasi hasil prediksi secara interaktif melalui Streamlit Dashboard**.
 
----
-
-## 🗂️ Struktur Proyek
-
-```
-.
-├── data/
-│ └── TSLA.csv # Data historis OHLCV dari Yahoo Finance
-├── models/
-│ └── gru_tsla.h5 # Model GRU tersimpan
-├── notebook/
-│ └── tesla_gru_prediction.ipynb # Notebook lengkap (Google Colab)
-└── requirements.txt
-```
+Proyek ini dikembangkan sebagai bagian dari tugas akademik mata kuliah **Machine Learning / Deep Learning** oleh **Kelompok 5**.
 
 ---
 
-## 🧠 Arsitektur Model
+## 👥 **Kelompok 5**
 
-Model menggunakan **dua lapis GRU** untuk memahami pola temporal jangka panjang dan jangka pendek.
+| Nama              | NPM            |
+| :---------------- | :--------------|
+| **Raahmatunnisa** | 2308107010016  |
+| **Davina Aura**   | 2308107010052  |
+| **Sifa Jema**     | 2308107010080  |
+| **Thahira Riska** | 2308107010024  |
 
-### **Detail Arsitektur**
-- **GRU (64 units)** – mempelajari pola pergerakan harga dalam 60 hari  
-- **GRU (64 units)** – memperkuat representasi temporal  
-- **Dense (1 unit)** – menghasilkan prediksi harga penutupan hari berikutnya  
 
-### **Input**
-Window 60 hari berisi 5 fitur:
-- Open  
-- High  
-- Low  
-- Close  
-- Volume  
+## 🧠 **Deskripsi Sistem**
 
-### **Output**
-Prediksi harga **Close** untuk hari selanjutnya.
+Sistem ini bekerja sebagai **tool analisis dan prediksi harga saham** berbasis time series yang memanfaatkan kemampuan **GRU** dalam menangkap pola historis data harga saham.
 
-### **Konfigurasi Pelatihan**
-- **Loss Function:** Mean Squared Error (MSE)  
-- **Optimizer:** Adam  
-- **Evaluasi:** MAE & RMSE  
+### **Cara Kerja Sistem**
 
----
+1. **Input Data**
 
-## 🔁 Proses Training
+   * Dataset historis saham **Tesla (TSLA)** dalam format CSV
+   * Fitur utama: *Open, High, Low, Close, Volume*
 
-1. Data OHLCV → **scaling menggunakan MinMaxScaler**  
-2. **Membuat sequence** dengan window 60 hari  
-3. Pembagian data: **Train 80%**, **Test 20%**  
-4. Training **30 epoch**  
-5. Validasi sebesar **10% dari data train**  
-6. Model disimpan dalam format **.h5**  
+2. **Processing**
 
----
+   * Data cleaning & normalisasi (MinMaxScaler)
+   * Pembentukan sequence time-series
+   * Training model **GRU**
+   * Evaluasi performa model
 
-## 📊 Hasil Evaluasi Model
+3. **Output**
 
-### **Evaluasi pada Data Test**
+   * Prediksi harga saham
+   * Visualisasi:
 
-| Metrik | Nilai |
-|--------|--------|
-| **MAE** | 7.83 |
-| **RMSE** | 10.97 |
+     * Actual vs Predicted
+     * Error Distribution
+     * Detailed Comparison Table
+   * Insight performa model
 
-### **Interpretasi**
-- Rata-rata kesalahan prediksi harga sekitar **±7.8 USD**  
-- RMSE **10.9 USD** menunjukkan model stabil mengikuti pola harga  
-- GRU efektif mempelajari pergerakan jangka pendek saham Tesla  
+### **Tujuan Utama**
+
+* Menerapkan **Deep Learning (GRU)** pada data time series saham
+* Membandingkan harga aktual dan hasil prediksi
+* Menyediakan dashboard interaktif untuk analisis hasil model
 
 ---
 
-## 🧩 Ringkasan Model
-
-| Layer (Type) | Output Shape | Parameter |
-|--------------|--------------|-----------|
-| GRU          | (None, 60, 64) | 13,632    |
-| GRU          | (None, 64)     | 24,960    |
-| Dense        | (None, 1)      | 65        |
-
-**Total Parameters:** 38,657
+## ⚙️ **Cara Instalasi dan Menjalankan**
 
 ---
 
-## 📊 Visualization
+### 🔹 **1. Clone Repository**
 
-<p align="center">
-  <img src="plot/tsla.png" width="600">
-  <br><em>Actual vs Predicted Close (TSLA)</em>
-</p>
-
----
-
-## 🏁 Kesimpulan Akhir
-
-Model GRU multi-feature yang dibangun dalam proyek ini mampu mempelajari pola pergerakan harga saham Tesla secara efektif dengan memanfaatkan lima fitur OHLCV. Arsitektur GRU berlapis menunjukkan kemampuan yang stabil dalam mengikuti dinamika pasar, menghasilkan prediksi yang konsisten dengan tingkat kesalahan yang masih dalam batas wajar untuk prediksi harga harian. Hasil ini membuktikan bahwa pendekatan GRU dapat menjadi model yang solid untuk analisis time series saham. Meski demikian, performa model masih dapat ditingkatkan lebih lanjut melalui eksplorasi arsitektur GRU yang lebih kompleks, penambahan dropout, indikator teknikal tambahan, maupun pendekatan hybrid agar akurasi prediksi semakin optimal. 
-
----
-
-## 🚀 Cara Menjalankan Proyek
-
-### **1. Clone repository**
 ```bash
-git clone https://github.com/username/repo.git
+git clone https://github.com/Raahmatunnisa/Prediksi-Harga-Saham-GRU.git
+cd Prediksi-Harga-Saham-GRU
 ```
-### **2. Install dependencies**
+
+---
+
+### 🔹 **2. Setup Virtual Environment**
+
+```bash
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# macOS / Linux
+source venv/bin/activate
+```
+
+---
+
+### 🔹 **3. Install Dependencies**
+
 ```bash
 pip install -r requirements.txt
 ```
-### **3. Jalankan notebook**
+
+---
+
+### 🔹 **4. Jalankan Aplikasi Streamlit**
+
 ```bash
-notebook/tesla_gru_prediction.ipynb
+streamlit run app.py
+```
+
+Aplikasi akan berjalan di:
+
+```
+http://localhost:8501
+```
+
+Atau versi online:
+
+🔗 **Live Demo:**
+👉 [https://prediksi-harga-saham-gru-kelompok5.streamlit.app/](https://prediksi-harga-saham-gru-kelompok5.streamlit.app/)
+
+---
+
+## 📂 **Struktur Proyek**
+
+```
+Prediksi-Harga-Saham-GRU/
+├── data/
+│   └── TSLA.csv                 # Dataset saham Tesla
+│
+├── model/
+│   └── gru_tsla.h5              # Model GRU terlatih
+│
+├── notebook/
+│   ├── tesla_gru_prediction.ipynb
+│   └── tesla_gru_prediction_fix.ipynb
+│
+├── plot/                        # Folder output visualisasi
+│
+├── modules/
+│   ├── data_fetcher.py          # Load & handle dataset
+│   ├── data_processor.py        # Preprocessing & scaling
+│   ├── model_trainer.py         # Training model GRU
+│   ├── predictor.py             # Prediksi harga saham
+│   └── utils.py                 # Helper functions
+│
+├── scaler_min.npy               # Min scaler
+├── scaler_scale.npy             # Scale scaler
+├── gru_tsla.keras               # Model format keras
+├── app.py                       # Streamlit app
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## 👥 Tugas Project MK Kecerdasan Artifisial B - Kelompok 5
+## 🎯 **Fitur-Fitur Utama**
 
-| No | Nama | NIM |
-|----|------|-----|
-| 1  | Rahmatun Nisa | 2308107010016 |
-| 2  | Thahira Rizka | 2308107010024 |
-| 3  | Davina Aura | 2308107010052 |
-| 4  | Sifa Jema | 2308107010080 |
+### ✅ **1. Prediksi Harga Saham dengan GRU**
+
+* Model **GRU (Gated Recurrent Unit)** untuk time series
+* Menggunakan sequence length yang dapat diatur
+* Output harga prediksi berbasis data historis
 
 ---
+
+### ✅ **2. Interactive Streamlit Dashboard**
+
+* Pengaturan sequence length
+* Informasi status model
+* Visualisasi real-time hasil prediksi
+
+---
+
+### ✅ **3. Actual vs Predicted Visualization**
+
+* Scatter plot perbandingan harga aktual dan prediksi
+* Garis *perfect prediction* sebagai baseline
+
+---
+
+### ✅ **4. Error Distribution Analysis**
+
+* Histogram distribusi error
+* Garis zero-error untuk analisis bias model
+
+---
+
+### ✅ **5. Detailed Comparison Table**
+
+* Tabel harga aktual vs prediksi
+* Selisih error per data point
+
+---
+
+## 💻 **Teknologi yang Digunakan**
+
+| Komponen                 | Teknologi               |
+| :----------------------- | :---------------------- |
+| **Programming Language** | Python 3.8+             |
+| **Deep Learning**        | TensorFlow, Keras (GRU) |
+| **Data Processing**      | Pandas, NumPy           |
+| **Visualization**        | Matplotlib, Streamlit   |
+| **Scaling**              | MinMaxScaler            |
+| **Deployment**           | Streamlit Cloud         |
+
+---
+
+## 📊 **Dataset**
+
+* **Sumber:** Yahoo Finance
+* **Kode Saham:** TSLA (Tesla Inc.)
+* **Periode:** Data historis harian
+* **Fitur:** Open, High, Low, Close, Volume
+
+---
+
+## 📸 **Screenshots**
+
+> *(Opsional — bisa ditambahkan nanti)*
+
+* Dashboard Utama
+* Error Distribution
+* Actual vs Predicted
+* Detailed Comparison Table
+
+---
+
+## 🚀 **Deployment**
+
+Aplikasi telah dideploy menggunakan **Streamlit Cloud**:
+
+🔗 [https://prediksi-harga-saham-gru-kelompok5.streamlit.app/](https://prediksi-harga-saham-gru-kelompok5.streamlit.app/)
+
+---
+
+## 📝 **License**
+
+Proyek ini dikembangkan untuk **tujuan akademik**.
+
+**© 2025 Kelompok 5 — All Rights Reserved**
+
+Dilarang memperjualbelikan atau mendistribusikan ulang tanpa izin seluruh anggota kelompok.
+
+---
+
+## 🙏 **Acknowledgments**
+
+* Yahoo Finance — Data saham
+* TensorFlow & Keras Community
+* Streamlit Community
+* Dosen & Asisten Praktikum
+
+---
+
+### ✨ *"Turning Time Series Data into Actionable Insights"*
