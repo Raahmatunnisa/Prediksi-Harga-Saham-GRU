@@ -12,7 +12,7 @@ Proyek ini dikembangkan sebagai bagian dari tugas akademik mata kuliah **Machine
 
 | Nama              | NPM            |
 | :---------------- | :--------------|
-| **Raahmatunnisa** | 2308107010016  |
+| **Rahmatun Nisa** | 2308107010016  |
 | **Davina Aura**   | 2308107010052  |
 | **Sifa Jema**     | 2308107010080  |
 | **Thahira Riska** | 2308107010024  |
@@ -116,20 +116,20 @@ Prediksi-Harga-Saham-GRU/
 │   └── TSLA.csv                 # Dataset saham Tesla
 │
 ├── model/
-│   └── gru_tsla.h5              # Model GRU terlatih
+│   └── gru_tsla.h5             
 │
 ├── notebook/
 │   ├── tesla_gru_prediction.ipynb
-│   └── tesla_gru_prediction_fix.ipynb
+│   └── tesla_gru_prediction fix.ipynb                        
 │
-├── plot/                        # Folder output visualisasi
-│
-├── modules/
-│   ├── data_fetcher.py          # Load & handle dataset
-│   ├── data_processor.py        # Preprocessing & scaling
-│   ├── model_trainer.py         # Training model GRU
-│   ├── predictor.py             # Prediksi harga saham
-│   └── utils.py                 # Helper functions
+├── plot/
+│   ├── comparisonTable.png          
+│   ├── dashboard.png
+│   ├── errorDistribusi.png
+│   ├── hasilEvaluasi.png
+│   ├── intrepretasi.png
+│   ├── tsla.png
+│   └── visualisasi.png
 │
 ├── scaler_min.npy               # Min scaler
 ├── scaler_scale.npy             # Scale scaler
